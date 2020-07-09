@@ -45,4 +45,25 @@
     (is (= (process-number-uncleaned 2) (process-number-cleaned 2))))
 
   (testing "largest"
-    (is (= 3 (largest [1 2 -1 3 3 2 1 0])))))
+    (is (= 3 (largest [1 2 -1 3 3 2 1 0]))))
+
+  (testing "scrabble"
+    (is (= 8 (score "hello")))
+
+    (is (= 17 (score "question")))
+
+    (is (= 35 (score "quizzed"))))
+
+  (testing "count-if"
+    (is (= 3 (count-if even? [1 2 3 4 5 6])))
+
+    (is (= 1 (count-if keyword? ["foo" :bar 'baz])))
+
+    (is (= 2
+           (count-if (fn [x]
+                       (= x (reverse x)))
+                     [[1 2 1] [1 2 3 4] [1]]))))
+  (testing "convert-space-age"
+    (is (= 1 (convert-space-age 30 :earth :saturn)))
+
+    (is (= 78 (convert-space-age 10 :mars :mercury)))))
