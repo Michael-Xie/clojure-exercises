@@ -42,4 +42,7 @@
     (is (= (process-list-uncleaned [1 2 3 4 5 6]) (process-list-cleaned [1 2 3 4 5 6])))
     (is (= (process-list-uncleaned [1 3 5]) (process-list-cleaned [1 2 3 4 5 6]))))
   (testing "process-number"
-    (is (= (process-number-uncleaned 2) (process-number-cleaned 2)))))
+    (is (= (process-number-uncleaned 2) (process-number-cleaned 2))))
+
+  (testing "largest"
+    (is (= 3 (largest [1 2 -1 3 3 2 1 0])))))

@@ -56,3 +56,6 @@
        (map (fn [x]
               (* x 10))) ; [20 40 60] lazy sequence
        ))
+
+(defn largest [nums]
+  (apply max nums))
