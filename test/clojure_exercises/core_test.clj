@@ -76,4 +76,17 @@
            (get-and-set :a
                         "baz"
                         {:a "foo"
-                         :b "quux"})))))
+                         :b "quux"}))))
+  (testing "add-info"
+    (is (= {:people {1 {:name "james"
+                        :points 1
+                        :stuff "beep boop"}
+                     2 {:name "rafd"
+                        :points 5}}}
+           (add-info {:people {1 {:name "james"
+                                  :points 1}
+                               2 {:name "rafd"
+                                  :points 5}}}
+                     1
+                     :stuff
+                     "beep boop")))))
