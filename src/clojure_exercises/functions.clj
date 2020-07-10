@@ -117,7 +117,20 @@
 (defn convert-space-age [age planet1 planet2]
   (int (* (/ (lookup planet1) (lookup planet2)) age)))
 
+(def game-state
+  {:current-player "X"
+   :board [nil "X" "O" nil nil "X" "O" nil nil]
+   :history [{:player "X"
+              :location 1}
+             {:player "O"
+              :location 2}
+             {:player "X"
+              :location 5}
+             {:player "O"
+              :location 6}]})
 
-    ;; (is (= 1 (convert-space-age 30 :earth :saturn)))
+(defn moves-played [state] (count (state :history)))
 
-    ;; (is (= 78 (convert-space-age 10 :mars :mercury)))))
+(defn moves-played-alt [state] (count (remove nil? (state :board))))
+(moves-played game-state)
+
