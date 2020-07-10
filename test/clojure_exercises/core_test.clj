@@ -66,4 +66,14 @@
   (testing "convert-space-age"
     (is (= 1 (convert-space-age 30 :earth :saturn)))
 
-    (is (= 78 (convert-space-age 10 :mars :mercury)))))
+    (is (= 78 (convert-space-age 10 :mars :mercury))))
+  (testing "get-and-set"
+    (is (= [1 [2 3 4]] (get-and-set 0 2 [1 3 4])))
+
+    (is (= ["foo"
+            {:a "baz"
+             :b "quux"}]
+           (get-and-set :a
+                        "baz"
+                        {:a "foo"
+                         :b "quux"})))))
