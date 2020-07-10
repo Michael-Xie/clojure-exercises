@@ -145,3 +145,15 @@
    (assoc coll key value)])
 
 (= [1 [2 3 4]] (get-and-set 0 2 [1 3 4]))
+
+;; Read in a text file (assuming it's in the current directory), reverse the file's contents, and write the result to a new file (the name now prefixed by "rev-") .
+;; (spit "test.txt" "1 2 3 4 5")
+(require '[clojure.string :as string])
+(defn reverse-file-content
+  [file-name]
+  (->> file-name
+       (slurp)
+       (string/reverse)
+       (spit (str "rev-" file-name))))
+
+(reverse-file-content "test.txt")
