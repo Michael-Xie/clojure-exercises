@@ -89,4 +89,15 @@
                                   :points 5}}}
                      1
                      :stuff
-                     "beep boop")))))
+                     "beep boop"))))
+  (testing "update-info"
+    (is (= {:people {1 {:name "james"
+                        :points 1}
+                     2 {:name "RAFD"
+                        :points 8}}}
+           (update-info {:people {1 {:name "james"
+                                     :points 1}
+                                  2 {:name "rafd"
+                                     :points 5}}}
+                        2
+                        3)))))
